@@ -7,9 +7,19 @@ CHALLENGE 1 - Review
 Write a function named raisedToTheThird that takes in an array of numbers and returns a new array of each of those numbers raised to the 3rd power (hint: look up Math.pow()). Use forEach to solve this problem.
 
 ------------------------------------------------------------------------------------------------ */
-
+/**
+ * RaisedToTheThird is a function that has one argument, an array of integers. It iterates over the numbers of the array and raises them to the third power.
+ *
+ * The return value is an modified array with the resulting integers all increased to the power of three.
+ * @param {Array} arr - Array of Integers
+ */
 const raisedToTheThird = (arr) => {
-  // Solution code here...
+  let output = []
+
+  arr.forEach(element => {
+      output.push(Math.pow(element, 3))
+  });
+  return output
 }
 
 /* ------------------------------------------------------------------------------------------------
