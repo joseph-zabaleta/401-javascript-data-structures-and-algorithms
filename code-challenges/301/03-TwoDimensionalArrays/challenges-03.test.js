@@ -105,7 +105,20 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+    let output = 0;
+
+    arr.forEach(element => {
+        if (element.store == 'Pet store') {
+
+            element.items.forEach(object => {
+                if (object.name == 'Treats') {
+                    output = object.quantity;
+                }
+            })
+        }
+    });
+
+    return output
 };
 
 /* ------------------------------------------------------------------------------------------------
