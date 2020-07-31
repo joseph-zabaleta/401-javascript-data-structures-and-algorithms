@@ -262,7 +262,23 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+    let output = [];
+    let rows = str.split('\n');
+
+    rows.forEach(row => {
+        let cols = row.split(',');
+
+        let currentValue = 0;
+
+        cols.forEach(col => {
+            currentValue += parseInt(col);
+        });
+
+        output.push(currentValue);
+
+    })
+
+    return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -363,7 +379,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return the total count for each row', () => {
     let result = excel('1,1,1\n4,4,4\n9,9,9');
     expect(result.length).toStrictEqual(3);
