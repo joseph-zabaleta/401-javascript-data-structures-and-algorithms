@@ -140,7 +140,13 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+    let output = 'miss';
+
+    if (board[row][col] == '#') {
+        output = 'hit';
+    }
+
+    return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,7 +158,17 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+    let output = 1;
+
+    numbers.forEach(arr => {
+
+        arr.forEach(num => {
+            output *= num;
+        })
+
+    });
+
+    return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -265,7 +281,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
@@ -284,7 +300,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
