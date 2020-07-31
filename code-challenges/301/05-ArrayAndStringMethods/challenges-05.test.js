@@ -201,7 +201,16 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+
+    for (let i = (arr.length -1); i >= 0; i--) {
+        let integer = arr[i];
+
+        if (!(integer % 2)) {
+            let oddIndex = arr.indexOf(integer);
+            arr.indexOf(integer);
+            arr.splice(oddIndex, 1);
+        };
+    };
 };
 
 /* ------------------------------------------------------------------------------------------------
