@@ -229,7 +229,18 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+    let output;
+
+    if (numberOfCharacters > str.length) {
+        output = '';
+    } else if (numberOfCharacters < 0) {
+        output = str;
+    } else {
+        let endIndex = str.length - numberOfCharacters;
+        output = str.slice(0, endIndex);
+    };
+
+    return output;
 };
 
 
@@ -240,9 +251,14 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 ------------------------------------------------------------------------------------------------ */
 
 const totalSumCSV = (str) => {
-  let total = 0;
-  // Solution code here...
-  return total;
+    let total = 0;
+    let arr = str.split(',');
+
+    arr.forEach(num => {
+        total += parseInt(num);
+    });
+
+    return total;
 };
 
 
@@ -343,7 +359,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
@@ -359,7 +375,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should add up the numbers contained within the string', () => {
     expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
     expect(totalSumCSV('147')).toStrictEqual(147);
