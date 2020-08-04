@@ -13,50 +13,50 @@
 // Write a function named templatingWithMustache that uses mustache to create the markup templates for each of the characters. Use the snippet as your guide for creating your templates. Return an array of template strings. Note: this function does not need to actually append the markup to the DOM.
 
 // ------------------------------------------------------------------------------------------------ */
-// let characters = [
-//   {
-//     name: 'Eddard',
-//     spouse: 'Catelyn',
-//     children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
-//     house: 'Stark'
-//   },
-//   {
-//     name: 'Jon A.',
-//     spouse: 'Lysa',
-//     children: ['Robin'],
-//     house: 'Arryn'
-//   },
-//   {
-//     name: 'Cersei',
-//     spouse: 'Robert',
-//     children: ['Joffrey', 'Myrcella', 'Tommen'],
-//     house: 'Lannister'
-//   },
-//   {
-//     name: 'Daenarys',
-//     spouse: 'Khal Drogo',
-//     children: ['Drogon', 'Rhaegal', 'Viserion'],
-//     house: 'Targaryen'
-//   },
-//   {
-//     name: 'Mace',
-//     spouse: 'Alerie',
-//     children: ['Margaery', 'Loras'],
-//     house: 'Tyrell'
-//   },
-//   {
-//     name: 'Euron',
-//     spouse: null,
-//     children: [],
-//     house: 'Greyjoy'
-//   },
-//   {
-//     name: 'Jon S.',
-//     spouse: null,
-//     children: [],
-//     house: 'Snow'
-//   }
-// ];
+let characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark'
+  },
+  {
+    name: 'Jon A.',
+    spouse: 'Lysa',
+    children: ['Robin'],
+    house: 'Arryn'
+  },
+  {
+    name: 'Cersei',
+    spouse: 'Robert',
+    children: ['Joffrey', 'Myrcella', 'Tommen'],
+    house: 'Lannister'
+  },
+  {
+    name: 'Daenarys',
+    spouse: 'Khal Drogo',
+    children: ['Drogon', 'Rhaegal', 'Viserion'],
+    house: 'Targaryen'
+  },
+  {
+    name: 'Mace',
+    spouse: 'Alerie',
+    children: ['Margaery', 'Loras'],
+    house: 'Tyrell'
+  },
+  {
+    name: 'Euron',
+    spouse: null,
+    children: [],
+    house: 'Greyjoy'
+  },
+  {
+    name: 'Jon S.',
+    spouse: null,
+    children: [],
+    house: 'Snow'
+  }
+];
 
 // let $ = createSnippetWithJQuery(`
 // <script id="template" type="x-tmpl-mustache">
@@ -97,7 +97,11 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+
+  arr.forEach(element => {
+    houses.push(element.house);
+  });
+
   return houses;
 };
 
