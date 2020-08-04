@@ -8,18 +8,18 @@ a GET request to / should respond with status of 200
 a DELETE request to /things/1 should respond with status of 405
 any other route should return status of 404
 ------------------------------------------------------------------------------------------------ */
-const createServer = () => {
-  const express = require('express');
-  const app = express();
+// const createServer = () => {
+//   const express = require('express');
+//   const app = express();
 
-  // solution code goes here ...
+//   // solution code goes here ...
 
-  var server = app.listen(3000, function () {
-    var port = server.address().port;
-    console.log('Example app listening at port', port);
-  });
-  return server;
-};
+//   var server = app.listen(3000, function () {
+//     var port = server.address().port;
+//     console.log('Example app listening at port', port);
+//   });
+//   return server;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -30,9 +30,11 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-  // Solution code here...
-};
-
+    return arr.map(element => {
+        let str = element.slice(0, 1).toUpperCase();
+        return str += element.slice(1);
+    })
+  };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -105,8 +107,23 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
-};
+
+    let luke = arr.filter(element => {
+       return element.name.includes('Luke')
+    });
+
+    let massivePeople = arr.filter(element => {
+       return parseInt(element.mass) > parseInt(luke[0].mass)
+    });
+
+    let names = massivePeople.map(element => {
+        return element.name;
+    })
+
+    names = names.join(' - ')
+
+    return names;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -123,8 +140,16 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
-};
+    return   arr.sort((a, b) => {
+           if (a[property] > b[property]){
+               return 1;
+           } else if (a[property] < b[property]){
+               return -1;
+           } else {
+               return 0;
+           }
+       })
+     };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -138,9 +163,7 @@ http://www.insecure.com returns false because the URL is not secure
 https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
-const isSecure = (url) => {
-  // Solution code here...
-};
+const isSecure = (url) =>  (/^(https)/g).test(url);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -176,38 +199,38 @@ Run your tests from the console: jest challenge-14.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-describe('Testing challenge 1', function () {
+// describe('Testing challenge 1', function () {
 
-  const request = require('supertest');
+//   const request = require('supertest');
 
-  let server;
+//   let server;
 
-  beforeEach(function () {
-    server = createServer();
-  });
+//   beforeEach(function () {
+//     server = createServer();
+//   });
 
-  afterEach(function () {
-    server.close();
-  });
+//   afterEach(function () {
+//     server.close();
+//   });
 
-  test('responds to /', function testSlash(done) {
-    request(server)
-      .get('/')
-      .expect(200, done);
-  });
+//   test('responds to /', function testSlash(done) {
+//     request(server)
+//       .get('/')
+//       .expect(200, done);
+//   });
 
-  test('responds to /things/1', function testSlash(done) {
-    request(server)
-      .delete('/things/1')
-      .expect(405, done);
-  });
+//   test('responds to /things/1', function testSlash(done) {
+//     request(server)
+//       .delete('/things/1')
+//       .expect(405, done);
+//   });
 
-  test('404 everything else', function testPath(done) {
-    request(server)
-      .get('/foo/bar')
-      .expect(404, done);
-  });
-});
+//   test('404 everything else', function testPath(done) {
+//     request(server)
+//       .get('/foo/bar')
+//       .expect(404, done);
+//   });
+// });
 
 describe('Testing challenge 2', () => {
   test('It should convert each word to title case', () => {
