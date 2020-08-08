@@ -21,4 +21,4 @@ To reverse a given array I utilized a for loop. A loop that starts from the end 
 ---
 
 ## Solution
-<!-- ![White Board Image](../../../assets/array_reverse.png) -->
+![White Board Image](../../../assets/arrayReverse.png)
