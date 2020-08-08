@@ -1,6 +1,7 @@
 # Reverse an Array
 [Table of Contents](../../../README.md)
 
+[Link to the Code](./array-reverse.js)
 ## Challenge 01
 Write a function called `reverseArray` which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
 
